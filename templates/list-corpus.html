@@ -10,8 +10,12 @@
  {% for corpus in listcorpus %}
  <div class="col-md-4">
     <h2>{{ corpus['name'] }}</h2>
-    <p>{{ corpus['text'] }}</p>
-    <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+    {% if corpus['text']|length < 50 %}
+        <p>{{ corpus['text'] }}</p>
+    {% else %}
+        <p>{{ corpus['text'][:50]+' ...' }}</p>
+    {% endif %}
+    <p><a class="btn btn-secondary" href="./{{ corpus['name'] }}.html" role="button">View details &raquo;</a></p>
  </div>
  {% endfor %}
 </div></div>

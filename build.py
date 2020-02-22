@@ -35,3 +35,10 @@ template = env.get_template('list-corpus.html')
 filename = os.path.join(root, 'html', 'list-corpus.html')
 with open(filename, 'w', encoding = 'utf-8') as fh:
     fh.write(template.render(listcorpus = listcorpus))
+
+# details
+template = env.get_template('details.html')
+for corpus in listcorpus:
+    filename = os.path.join(root, 'html', str(corpus['name']) + '.html')
+    with open(filename, 'w', encoding = 'utf-8') as fh:
+        fh.write(template.render(corpus = corpus))
