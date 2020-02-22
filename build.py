@@ -23,3 +23,15 @@ template = env.get_template('index.html')
 filename = os.path.join(root, 'html', 'index.html')
 with open(filename, 'w', encoding = 'utf-8') as fh:
     fh.write(template.render())
+
+# List Corpus
+list_corpus = list(db.keys())
+list_corpus.remove('test') # del test
+list_corpus.sort()
+
+listcorpus = [db[i] for i in list_corpus]
+
+template = env.get_template('list-corpus.html')
+filename = os.path.join(root, 'html', 'list-corpus.html')
+with open(filename, 'w', encoding = 'utf-8') as fh:
+    fh.write(template.render(listcorpus = listcorpus))

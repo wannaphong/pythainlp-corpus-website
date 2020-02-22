@@ -1,0 +1,17 @@
+{% extends "head.html" %}
+{% block title %} List Corpus - PyThaiNLP Corpus {% endblock %}
+{% block body %}
+ <h1>List Corpus</h1>
+ <p>List PyThaiNLP Corpus.</p>
+ <div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+ {% for corpus in listcorpus %}
+ <div class="col-md-4">
+    <h2>{{ corpus['name'] }}</h2>
+    <p>{{ corpus['text'] }}</p>
+    <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+ </div>
+ {% endfor %}
+</div></div>
+{% endblock %}
