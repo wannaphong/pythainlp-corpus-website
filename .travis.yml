@@ -10,7 +10,7 @@ script:
   - python -m unittest
 
 after_success:
-  - cd docs && make html
+  - python build.py
 
 deploy:
   provider: pages
